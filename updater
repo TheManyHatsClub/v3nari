@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# Must be run as root
+if [ "$(id -u)" -ne 0 ]; then
+	echo "Script not ran as root, exiting"
+	exit 1
+fi
+
+if [ ! -d /var/log/installscript ];
+then
+	mkdir /var/log/installscript
+fi
+
+# Gets the current time in epoch for log file
+time=$EPOCHSECONDS
+
+# Coloured output
+Error='\033[0;31m'
+Success='\033[0;32m'
+NC='\033[0m\n'
+
+# Temporary Files should go in temp folder 
+# clean-up incase install crashed last time
+if [ -d installertemp ];
+then
+	rm -rf installertemp
+fi
+mkdir installertemp
+cd installertemp
+
+# Installing Sherlock
+if [ -d /usr/local/bin/Sherlock ];
+then
+	# We don't need to install the tool all over again however we do download the git repo just to make sure everything is recent
+	printf "Upgrading sherlock... "
+	cd /usr/local/bin/Sherlock &>> /var/log/installscript/$time &&
+        git reset --hard HEAD~1 &>> /var/log/installscript/$time &&
+        git pull &>> /var/log/installscript/$time &&
+        pip3 install -r requirements.txt &>> /var/log/installscript/$time
+	if [ $? -eq 0 ]; then
+		printf "$Success Success $NC"
+	else
+		printf "$Error Failed.  Please check /var/log/installscript/$time for more info $NC" 
+	fi
+else
+	printf "Installing Sherlock..."
+	git clone https://github.com/sherlock-project/sherlock.git sherlock &>> /var/log/installscript/$time &&
+	mv sherlock /usr/local/bin/Sherlock &>> /var/log/installscript/$time &&
+	# for the love of God do not forget to make the files executable.
+	chmod a+x /usr/local/bin/Sherlock/sherlock/sherlock.py  &>> /var/log/installscript/$time &&
+	cd /usr/local/bin/Sherlock  &>> /var/log/installscript/$time &&
+	git remote set-url origin https://github.com/sherlock-project/sherlock.git  &>> /var/log/installscript/$time &&
+	ln -s /usr/local/bin/Sherlock/sherlock/sherlock.py /usr/local/bin/sherlock  &>> /var/log/installscript/$time
+	if [ $? -eq 0 ]; then
+		printf "$Success Success $NC"
+	else
+		printf "$Error Failed.  Please check /var/log/installscript/$time for more info $NC"
+	fi
+fi
+
+# Return to installertemp folder to install next file
+cd ..
+
+
+# Install finished, cleanup
+rm -rf installertemp
