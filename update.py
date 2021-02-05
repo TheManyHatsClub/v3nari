@@ -10,10 +10,12 @@ def addtoolsubuntu():
     subprocess.run(['apt-get', 'install', 'git'])
 
 def githubtoolinstall():
-    subprocess.run(['apt-get', 'update'])
-    subprocess.run(['apt-get', 'update'])
-    subprocess.run(['apt-get', 'update'])
-    subprocess.run(['apt-get', 'update'])
+    subprocess.run(['git clone https://github.com/DedSecInside/TorBot.git'])
+    subprocess.run(['cd TorBot'])
+    subprocess.run(['pip3 install -r requirements.txt'])
+    subprocess.run(['./install.sh'])
+    subprocess.run(['cd ..'])
+
 
 def pipinstalls():
     subprocess.run(['python3', 'pip', 'install', ''])
