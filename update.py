@@ -8,7 +8,6 @@ def updatesys():
 
 def addtoolsubuntu():
     subprocess.run(['python', '-m', 'pip', 'install', '–upgrade pip'])
-    subprocess.run(['apt-get', 'install', 'git'])
 
 def githubtoolinstall():
     subprocess.run(['git clone https://github.com/DedSecInside/TorBot.git'])
@@ -18,9 +17,6 @@ def githubtoolinstall():
     subprocess.run(['cd ..'])
 
 
-def pipinstalls():
-    subprocess.run(['python3', 'pip', 'install', ''])
-
 
 print("V3NARI Updater by @TheCyberViking")
 print("This will update to the latest build of V3NARI")
@@ -29,10 +25,7 @@ print("This will take a while go get a cookie")
 print("")
 print("Follow @TheCyberVIking @CyberSecStu @AlanTheBlank @Rag_Sec and @TheManyHatsClub")
 print("")
-
-
 updatesys()
-pipinstalls()
 addtoolsubuntu()
 githubtoolinstall()
-
+print("All Done Enjoy")
