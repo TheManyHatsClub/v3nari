@@ -3,6 +3,7 @@ import subprocess
 
 def updatesys():
     subprocess.run(['apt-get', 'update'])
+    subprocess.run(['apt-get', 'upgrade'])
     subprocess.run(['apt-get', 'dist-upgrade'])
 
 def addtoolsubuntu():
@@ -31,7 +32,7 @@ print("")
 
 
 updatesys()
+pipinstalls()
 addtoolsubuntu()
 githubtoolinstall()
-pipinstalls()
 
