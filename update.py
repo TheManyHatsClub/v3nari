@@ -7,15 +7,16 @@ def updatesys():
     subprocess.run(['apt-get', 'dist-upgrade', '-y'])
 
 def addtoolsubuntu():
-    subprocess.run(['apt-get', 'install', 'python3-pip'])
-    subprocess.run(['python', '-m', 'pip', 'install', '–upgrade pip'])
+    subprocess.run(['apt-get', 'install', 'python3-pip', '-y'])
+    subprocess.run(['python', '-m', 'pip', 'install', '–upgrade pip', '-y'])
     subprocess.run(['apt-get', 'install', 'git', '-y'])
-
+    subprocess.run(['apt-get', 'install', 'git-core', 'git-gui', 'git-doc', '-y'])
+    
 def githubtoolinstall():
     subprocess.run(['git', 'clone', 'https://github.com/DedSecInside/TorBot.git'])
     subprocess.run(['cd', 'TorBot'])
     subprocess.run(['pip3', 'install', '-r', 'requirements.txt'])
-    subprocess.run(['./install.sh'])
+    subprocess.run(['./install.sh', '-y'])
     subprocess.run(['cd', '..'])
 
     
