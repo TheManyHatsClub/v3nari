@@ -14,7 +14,8 @@ def addtoolsubuntu():
     
 def githubtoolinstall():
     subprocess.run(['git', 'clone', 'https://github.com/DedSecInside/TorBot.git'])
-    subprocess.run(['pip3', 'install', '-r', 'TorBot/requirements.txt'])
+    subprocess.run(['pip3', 'install', '-r', '/TorBot/requirements.txt'])
+    subprocess.run(['chmod', '+777', '/TorBot/install.sh'])
     subprocess.run(['./TorBot/install.sh', '-y'])
 
     
