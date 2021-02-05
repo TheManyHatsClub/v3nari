@@ -2,9 +2,9 @@
 import subprocess
 
 def updatesys():
-    subprocess.run(['apt-get', 'update'])
-    subprocess.run(['apt-get', 'upgrade'])
-    subprocess.run(['apt-get', 'dist-upgrade'])
+    subprocess.run(['apt-get', 'update', '-y'])
+    subprocess.run(['apt-get', 'upgrade', '-y'])
+    subprocess.run(['apt-get', 'dist-upgrade', '-y'])
 
 def addtoolsubuntu():
     subprocess.run(['apt-get', 'install', 'python3-pip'])
