@@ -16,7 +16,6 @@ def githubtoolinstall():
     subprocess.run(['git', 'clone', 'https://github.com/DedSecInside/TorBot.git'])
     subprocess.run(['pip3', 'install', '-r', '/TorBot/requirements.txt'])
     subprocess.run(['./TorBot//install.sh', '-y'])
-    subprocess.run(['cd', '..'])
 
     
 print("V3NARI Updater by @TheCyberViking")
