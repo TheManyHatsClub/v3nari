@@ -11,11 +11,11 @@ def addtoolsubuntu():
     subprocess.run(['python', '-m', 'pip', 'install', '–upgrade pip'])
 
 def githubtoolinstall():
-    subprocess.run(['git clone https://github.com/DedSecInside/TorBot.git'])
-    subprocess.run(['cd TorBot'])
-    subprocess.run(['pip3 install -r requirements.txt'])
+    subprocess.run(['git', 'clone', 'https://github.com/DedSecInside/TorBot.git'])
+    subprocess.run(['cd', 'TorBot'])
+    subprocess.run(['pip3', 'install', '-r', 'requirements.txt'])
     subprocess.run(['./install.sh'])
-    subprocess.run(['cd ..'])
+    subprocess.run(['cd', '..'])
 
 print("V3NARI Updater by @TheCyberViking")
 print("This will update to the latest build of V3NARI")
