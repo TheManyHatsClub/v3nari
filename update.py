@@ -9,6 +9,7 @@ def updatesys():
 def addtoolsubuntu():
     subprocess.run(['apt-get', 'install', 'python3-pip'])
     subprocess.run(['python', '-m', 'pip', 'install', '–upgrade pip'])
+    subprocess.run(['apt-get', 'install', 'git', '-y'])
 
 def githubtoolinstall():
     subprocess.run(['git', 'clone', 'https://github.com/DedSecInside/TorBot.git'])
