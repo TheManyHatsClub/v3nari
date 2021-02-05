@@ -17,6 +17,7 @@ def githubtoolinstall():
     subprocess.run(['./install.sh'])
     subprocess.run(['cd', '..'])
 
+    
 print("V3NARI Updater by @TheCyberViking")
 print("This will update to the latest build of V3NARI")
 print("")
