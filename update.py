@@ -7,7 +7,7 @@ def updatesys():
     subprocess.run(['apt-get', 'dist-upgrade'])
 
 def addtoolsubuntu():
-    subprocess.run(['apt-get, install, python3-pip'])
+    subprocess.run(['apt-get', 'install', 'python3-pip'])
     subprocess.run(['python', '-m', 'pip', 'install', '–upgrade pip'])
 
 def githubtoolinstall():
