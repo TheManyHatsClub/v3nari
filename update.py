@@ -7,6 +7,7 @@ def updatesys():
     subprocess.run(['apt-get', 'dist-upgrade'])
 
 def addtoolsubuntu():
+    subprocess.run(['apt-get, install, python3-pip'])
     subprocess.run(['python', '-m', 'pip', 'install', '–upgrade pip'])
 
 def githubtoolinstall():
@@ -15,8 +16,6 @@ def githubtoolinstall():
     subprocess.run(['pip3 install -r requirements.txt'])
     subprocess.run(['./install.sh'])
     subprocess.run(['cd ..'])
-
-
 
 print("V3NARI Updater by @TheCyberViking")
 print("This will update to the latest build of V3NARI")
